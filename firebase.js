@@ -27,43 +27,47 @@ if (typeof navigator !== "undefined") {
         console.log(currentToken);
         onMessage(messaging, (payload) => {
           console.log("aasasasa", payload);
+          const { body, icon, title } = payload?.notification;
+
           toast.custom((t) => (
             <div
               style={{
                 height: "auto",
-                boxShadow: "lg",
-                borderRadius: "lg",
-                alignItems: "center",
-                paddingLeft: "2",
-                paddingRight: "2",
-                justifyContent: "between",
-                backgroundColor: "white",
+                boxShadow:
+                  "0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                borderRadius: "0.375rem",
                 display: "flex",
-                width: "3/4",
-                maxWidth: "lg",
-                marginLeft: "auto",
-                marginRight: "auto",
+                width: "75%",
+                maxWidth: "80rem",
+                margin: "0 auto",
                 position: "sticky",
-                top: "3",
-                paddingTop: "2",
-                paddingBottom: "2",
+                top: "0.75rem",
+                padding: "0.5rem",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", flex: "1" }}>
+              <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
                 <img
                   src="/vercel.svg"
                   alt="Vercel Logo"
-                  style={{ width: "10", height: "10" }}
+                  style={{ width: "2.5rem", height: "2.5rem" }}
                   width={100}
                   height={24}
                 />
-                <div style={{ placeContent: "start", paddingLeft: "5" }}>
-                  <span style={{ fontSize: "lg", color: "black" }}>title</span>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    paddingLeft: "1.25rem",
+                  }}
+                >
+                  <span style={{ fontSize: "1.125rem", color: "#000" }}>
+                    title
+                  </span>
                   <p
                     style={{
-                      marginTop: "1",
-                      fontSize: "sm",
-                      color: "gray-600",
+                      marginTop: "0.25rem",
+                      fontSize: "0.875rem",
+                      color: "#718096",
                     }}
                   >
                     title kspodsdpp csipodisdpos
@@ -73,17 +77,16 @@ if (typeof navigator !== "undefined") {
               <button
                 onClick={() => toast.dismiss(t.id)}
                 style={{
-                  borderLeft: "border-indigo-600",
-                  width: "16",
-                  color: "indigo-600",
-                  paddingLeft: "2",
+                  borderLeft: "1px solid #e2e8f0",
+                  width: "4rem",
+                  color: "#667eea",
+                  paddingLeft: "0.5rem",
                 }}
               >
                 Close
               </button>
             </div>
           ));
-          const { body, icon, title } = payload?.notification;
           self?.registration?.showNotification(title);
 
           new Notification(title || "", {

@@ -1,19 +1,9 @@
 "use client";
 
-import React, { PropsWithChildren, useEffect } from "react";
+import React, { PropsWithChildren } from "react";
 import "../../firebase";
-import { getMessaging, onMessage } from "@firebase/messaging";
-import { toast } from "react-hot-toast";
 
 const PageWrapper = ({ children }: PropsWithChildren) => {
-  useEffect(() => {
-    const messaging = getMessaging();
-    onMessage(messaging, (payload) => {
-      toast("ali");
-      new Notification("ali");
-    });
-  }, []);
-
   return <div>Askari{children}</div>;
 };
 

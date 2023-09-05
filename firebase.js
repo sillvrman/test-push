@@ -25,10 +25,12 @@ if (typeof navigator !== "undefined") {
       if (currentToken) {
         console.log(currentToken);
         onMessage(messaging, (payload) => {
+          console.log("payload", payload);
           const { body, icon, title } = payload?.notification;
           new Notification(title || "", {
             body: body || "",
             icon: icon || "",
+            renotify,
           });
         });
       }

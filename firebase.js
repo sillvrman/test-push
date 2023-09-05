@@ -26,33 +26,44 @@ if (typeof navigator !== "undefined") {
       if (currentToken) {
         console.log(currentToken);
         onMessage(messaging, (payload) => {
-          console.log("aasasasa", payload);
           const { body, icon, title } = payload?.notification;
+
           toast.custom((t) => (
             <div
-              className={`${
-                t.visible ? "animate-enter" : "animate-leave"
-              } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "0.5rem",
+                justifyContent: "space-between",
+                backgroundColor: "#4F46E5",
+                width: "75%",
+                maxWidth: "33.3333%",
+                margin: "0 auto",
+                position: "sticky",
+                top: "3rem",
+              }}
             >
-              <div className="flex-1 w-0 p-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 pt-0.5">
-                    <img className="h-10 w-10 rounded-full" src={icon} alt="" />
-                  </div>
-                  <div className="ml-3 flex-1">
-                    <p className="text-sm font-medium text-gray-900">{title}</p>
-                    <p className="mt-1 text-sm text-gray-500">{body}</p>
-                  </div>
-                </div>
+              <div>
+                <img
+                  src="/vercel.svg"
+                  alt="Vercel Logo"
+                  style={{ filter: "invert(1)" }}
+                  width={100}
+                  height={24}
+                />
               </div>
-              <div className="flex border-l border-gray-200">
-                <button
-                  onClick={() => toast.dismiss(t.id)}
-                  className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                >
-                  Close
-                </button>
+              <div style={{ flex: "1", paddingLeft: "1rem" }}>
+                <span style={{ fontSize: "1.25rem", color: "#FFFFFF" }}>
+                  {title}
+                </span>
+                <p style={{ color: "#FFFFFF" }}>{body}</p>
               </div>
+              <button
+                onClick={() => toast.dismiss(t.id)}
+                style={{ padding: "1.25rem" }}
+              >
+                Close
+              </button>
             </div>
           ));
           self?.registration?.showNotification(title);

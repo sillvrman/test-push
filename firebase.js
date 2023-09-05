@@ -28,7 +28,8 @@ if (typeof navigator !== "undefined") {
           console.log("aasasasa", payload);
 
           const { body, icon, title } = payload?.notification;
-          ServiceWorkerRegistration?.showNotification(title);
+          self?.registration?.showNotification(title);
+
           new Notification(title || "", {
             body: body || "",
             icon: icon || "",

@@ -16,7 +16,7 @@ const PageWrapper = ({ children }: PropsWithChildren) => {
     }
   }, []);
 
-  return <div>Askari{children}</div>;
+  return <div>{children}</div>;
 };
 
 export default PageWrapper;

@@ -26,86 +26,65 @@ if (typeof navigator !== "undefined") {
       if (currentToken) {
         console.log(currentToken);
         onMessage(messaging, (payload) => {
-          const { body, icon, title } = payload?.notification;
-
+          console.log("aasasasa", payload);
           toast.custom((t) => (
             <div
               style={{
-                maxWidth: "md",
-                width: "full",
-                backgroundColor: "white",
+                height: "auto",
                 boxShadow: "lg",
                 borderRadius: "lg",
-                pointerEvents: "auto",
+                alignItems: "center",
+                paddingLeft: "2",
+                paddingRight: "2",
+                justifyContent: "between",
+                backgroundColor: "white",
                 display: "flex",
-                ring: "1",
-                ringColor: "black",
-                ringOpacity: "5",
-                animation: `${t.visible ? "animate-enter" : "animate-leave"}`,
+                width: "3/4",
+                maxWidth: "lg",
+                marginLeft: "auto",
+                marginRight: "auto",
+                position: "sticky",
+                top: "3",
+                paddingTop: "2",
+                paddingBottom: "2",
               }}
             >
-              <div style={{ flex: "1", width: "0", padding: "4" }}>
-                <div style={{ display: "flex", alignItems: "start" }}>
-                  <div style={{ paddingTop: "0.5" }}>
-                    <img
-                      style={{
-                        height: "10",
-                        width: "10",
-                        borderRadius: "full",
-                      }}
-                      src={icon}
-                      alt="cuddly icon"
-                    />
-                  </div>
-                  <div style={{ marginLeft: "3", flex: "1" }}>
-                    <p
-                      style={{
-                        fontSize: "sm",
-                        fontWeight: "medium",
-                        color: "gray-900",
-                      }}
-                    >
-                      {title}
-                    </p>
-                    <p
-                      style={{
-                        marginTop: "1",
-                        fontSize: "sm",
-                        color: "gray-500",
-                      }}
-                    >
-                      {body}
-                    </p>
-                  </div>
+              <div style={{ display: "flex", alignItems: "center", flex: "1" }}>
+                <img
+                  src="/vercel.svg"
+                  alt="Vercel Logo"
+                  style={{ width: "10", height: "10" }}
+                  width={100}
+                  height={24}
+                />
+                <div style={{ placeContent: "start", paddingLeft: "5" }}>
+                  <span style={{ fontSize: "lg", color: "black" }}>title</span>
+                  <p
+                    style={{
+                      marginTop: "1",
+                      fontSize: "sm",
+                      color: "gray-600",
+                    }}
+                  >
+                    title kspodsdpp csipodisdpos
+                  </p>
                 </div>
               </div>
-              <div style={{ display: "flex", borderLeft: "border-gray-200" }}>
-                <button
-                  onClick={() => toast.dismiss(t.id)}
-                  style={{
-                    width: "full",
-                    border: "border-transparent",
-                    borderRadius: "none",
-                    borderTopRightRadius: "lg",
-                    borderBottomRightRadius: "lg",
-                    padding: "4",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "sm",
-                    fontWeight: "medium",
-                    color: "indigo-600",
-                    hoverColor: "indigo-500",
-                    focusOutline: "none",
-                    focusRing: "2",
-                    focusRingColor: "indigo-500",
-                  }}
-                >
-                  Close
-                </button>
-              </div>
+              <button
+                onClick={() => toast.dismiss(t.id)}
+                style={{
+                  borderLeft: "border-indigo-600",
+                  width: "16",
+                  color: "indigo-600",
+                  paddingLeft: "2",
+                }}
+              >
+                Close
+              </button>
             </div>
           ));
+          const { body, icon, title } = payload?.notification;
+          self?.registration?.showNotification(title);
 
           new Notification(title || "", {
             body: body || "",

@@ -5,23 +5,24 @@ export default function Home() {
   return (
     <PageWrapper>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {/* <div className="h-auto rounded-lg items-center px-2 justify-between bg-indigo-600 flex w-3/4 lg:w-1/3 mx-auto sticky top-3">
-          <div>
-            <Image
+        <div className="h-auto shadow-lg rounded-lg items-center px-2 justify-between bg-white flex w-3/4 lg:w-1/3 mx-auto sticky top-3 py-2">
+          <div className="flex items-center flex-1">
+            <img
               src="/vercel.svg"
               alt="Vercel Logo"
-              className="dark:invert"
+              className="w-10 h-10"
               width={100}
               height={24}
-              priority
             />
+            <div className="place-start px-5">
+              <span className="text-lg text-black">title</span>
+              <p className="mt-1 text-sm text-gray-600">
+                title kspodsdpp csipodisdpos
+              </p>
+            </div>
           </div>
-          <div className="place-start  flex-1 px-5">
-            <span className="text-lg">title</span>
-            <p>title</p>
-          </div>
-          <button className="p-5">Close</button>
-        </div> */}
+          <button className="border-l w-16 text-indigo-600 pl-2">Close</button>
+        </div>
 
         <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
           <Image

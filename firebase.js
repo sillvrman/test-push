@@ -1,5 +1,6 @@
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 import { initializeApp } from "firebase/app";
+import { toast } from "react-hot-toast";
 
 const config = {
   apiKey: "AIzaSyBL2TE3koZM_cQv0H_ptGrcQfWFNaZcPtQ",
@@ -26,7 +27,7 @@ if (typeof navigator !== "undefined") {
         console.log(currentToken);
         onMessage(messaging, (payload) => {
           console.log("aasasasa", payload);
-
+          toast("aasasasa");
           const { body, icon, title } = payload?.notification;
           self?.registration?.showNotification(title);
 

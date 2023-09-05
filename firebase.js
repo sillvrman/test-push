@@ -48,7 +48,7 @@ if (typeof navigator !== "undefined") {
             >
               <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
                 <img
-                  src="/vercel.svg"
+                  src={icon}
                   alt="Vercel Logo"
                   style={{ width: "2.5rem", height: "2.5rem" }}
                   width={100}

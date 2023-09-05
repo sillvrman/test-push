@@ -5,7 +5,7 @@ import "../../firebase";
 
 const PageWrapper = ({ children }: PropsWithChildren) => {
   console.log("first");
-  return <div>Ali{children}</div>;
+  return <div>Askari{children}</div>;
 };
 
 export default PageWrapper;

@@ -57,12 +57,13 @@ if (typeof navigator !== "undefined") {
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "flex-start",
+                    flexDirection: "column",
+                    justifyContent: "center",
                     paddingLeft: "1.25rem",
                   }}
                 >
                   <span style={{ fontSize: "1.125rem", color: "#000" }}>
-                    title
+                    {title}
                   </span>
                   <p
                     style={{
@@ -71,7 +72,7 @@ if (typeof navigator !== "undefined") {
                       color: "#718096",
                     }}
                   >
-                    title kspodsdpp csipodisdpos
+                    {body}
                   </p>
                 </div>
               </div>

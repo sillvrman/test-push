@@ -29,7 +29,6 @@ if (typeof navigator !== "undefined") {
           new Notification(title || "", {
             body: body || "",
             icon: icon || "",
-            tag: "cuddly",
           });
         });
       }

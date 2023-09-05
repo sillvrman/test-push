@@ -26,7 +26,9 @@ if (typeof navigator !== "undefined") {
         console.log(currentToken);
         onMessage(messaging, (payload) => {
           console.log("aasasasa", payload);
+
           const { body, icon, title } = payload?.notification;
+          ServiceWorkerRegistration?.showNotification(title);
           new Notification(title || "", {
             body: body || "",
             icon: icon || "",

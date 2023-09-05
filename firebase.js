@@ -31,42 +31,81 @@ if (typeof navigator !== "undefined") {
           toast.custom((t) => (
             <div
               style={{
+                maxWidth: "md",
+                width: "full",
+                backgroundColor: "white",
+                boxShadow: "lg",
+                borderRadius: "lg",
+                pointerEvents: "auto",
                 display: "flex",
-                alignItems: "center",
-                padding: "0.5rem",
-                justifyContent: "space-between",
-                backgroundColor: "#4F46E5",
-                width: "75%",
-                maxWidth: "33.3333%",
-                margin: "0 auto",
-                position: "sticky",
-                top: "3rem",
+                ring: "1",
+                ringColor: "black",
+                ringOpacity: "5",
+                animation: `${t.visible ? "animate-enter" : "animate-leave"}`,
               }}
             >
-              <div>
-                <img
-                  src="/vercel.svg"
-                  alt="Vercel Logo"
-                  style={{ filter: "invert(1)" }}
-                  width={100}
-                  height={24}
-                />
+              <div style={{ flex: "1", width: "0", padding: "4" }}>
+                <div style={{ display: "flex", alignItems: "start" }}>
+                  <div style={{ paddingTop: "0.5" }}>
+                    <img
+                      style={{
+                        height: "10",
+                        width: "10",
+                        borderRadius: "full",
+                      }}
+                      src={icon}
+                      alt="cuddly icon"
+                    />
+                  </div>
+                  <div style={{ marginLeft: "3", flex: "1" }}>
+                    <p
+                      style={{
+                        fontSize: "sm",
+                        fontWeight: "medium",
+                        color: "gray-900",
+                      }}
+                    >
+                      {title}
+                    </p>
+                    <p
+                      style={{
+                        marginTop: "1",
+                        fontSize: "sm",
+                        color: "gray-500",
+                      }}
+                    >
+                      {body}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div style={{ flex: "1", paddingLeft: "1rem" }}>
-                <span style={{ fontSize: "1.25rem", color: "#FFFFFF" }}>
-                  {title}
-                </span>
-                <p style={{ color: "#FFFFFF" }}>{body}</p>
+              <div style={{ display: "flex", borderLeft: "border-gray-200" }}>
+                <button
+                  onClick={() => toast.dismiss(t.id)}
+                  style={{
+                    width: "full",
+                    border: "border-transparent",
+                    borderRadius: "none",
+                    borderTopRightRadius: "lg",
+                    borderBottomRightRadius: "lg",
+                    padding: "4",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "sm",
+                    fontWeight: "medium",
+                    color: "indigo-600",
+                    hoverColor: "indigo-500",
+                    focusOutline: "none",
+                    focusRing: "2",
+                    focusRingColor: "indigo-500",
+                  }}
+                >
+                  Close
+                </button>
               </div>
-              <button
-                onClick={() => toast.dismiss(t.id)}
-                style={{ padding: "1.25rem" }}
-              >
-                Close
-              </button>
             </div>
           ));
-          self?.registration?.showNotification(title);
 
           new Notification(title || "", {
             body: body || "",

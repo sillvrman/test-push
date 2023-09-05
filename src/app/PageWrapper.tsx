@@ -8,12 +8,10 @@ import { toast } from "react-hot-toast";
 const PageWrapper = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const messaging = getMessaging();
-    if (typeof navigator !== "undefined") {
-      onMessage(messaging, (payload) => {
-        toast("ali");
-        new Notification("ali");
-      });
-    }
+    onMessage(messaging, (payload) => {
+      toast("ali");
+      new Notification("ali");
+    });
   }, []);
 
   return <div>Askari{children}</div>;
